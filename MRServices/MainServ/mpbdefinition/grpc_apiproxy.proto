@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+package mpb;
+
+option go_package = "./mpb";
+
+import "common.proto";
+import "aptos.proto";
+
+service APIProxyGRPC {
+    rpc GetAptosResources (ReqGetAptosResources) returns (ResGetAptosResources);
+    rpc SendEmailBindCode (ReqSendEmailBindCode) returns (Empty);
+    rpc SendEmailResetPasswordValidationCode (ReqSendEmailResetPasswordValidationCode) returns (Empty);
+    rpc MoralisGetNFTByWallets (ReqMoralisGetNFTByWallets) returns (ResMoralisGetNFTByWallets);
+    rpc GraphiQLGetAccountTransactions (ReqGraphiQLGetAccountTransactions) returns (ResGraphiQLGetAccountTransactions);
+    rpc GraphiQLGetCollectionTransactions (ReqGraphiQLGetCollectionTransactions) returns (ResGraphiQLGetCollectionTransactions);
+}
+
+message ReqGetAptosResources {
+    string aptos_acc_addr = 1;
+}
+
+message ResGetAptosResources {
+    string resources = 1;
+}
+
+message ReqSendEmailBindCode {
+    string email = 1;
+    string code = 2;
+}
+
+message ReqSendEmailResetPasswordValidationCode {
+    string email = 1;
+    string code = 2;
+}
+
+message ReqMoralisGetNFTByWallets {
+     repeated string wallet_addresses = 1;
+     repeated string collections = 2;
+}
+
+message ResMoralisGetNFTByWallets {
+    message NFTList {
+        repeated MoralisNFTData list = 1;
+    }
+    map<string, NFTList>  nfts = 1;
+}
+
+message ReqGraphiQLGetAccountTransactions {
+    string addr = 1;
+    uint64  start_index = 2;
+    uint64 page_num = 3;
+}
+
+message ResGraphiQLGetAccountTransactions {
+    AptosAccountTransactions transactions = 1;
+}
+
+message ReqGraphiQLGetCollectionTransactions {
+    string collection_id = 1;
+    uint64 start_index = 2;
+    uint64 page_num = 3;
+}
+
+message ResGraphiQLGetCollectionTransactions {
+    AptosTransactions transactions = 1;
+}

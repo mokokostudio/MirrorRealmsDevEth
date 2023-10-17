@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package mpb;
+
+import "common.proto";
+
+option go_package = "./mpb";
+
+// apiproxy
+message EmailAddrRsc {
+    string addr = 1;
+    string passwd = 2;
+    string host = 3;
+    string port = 4;
+}
+
+message MoralisInfoRsc {
+    string api_key = 1;
+}
+
+// nftservice
+message NFTCollectionRsc {
+    ENFT.NFTType nft_type = 1;
+    repeated string collection_hash = 2;
+}
+
+message NFTConfigRsc {
+    uint64 nft_graphiql_query_limit = 1;
+    uint64 nft_graphiql_page_num = 2;
+    string nft_transfer_event = 3;
+    string nft_burn_event = 4;
+    string nft_withdraw_event2 = 5;
+    string nft_deposit_event2 = 6;
+    string nft_burn_event2 = 7;
+    string nft_mint_event2 = 8;
+    string nft_transfer_offer_event2 = 9;
+    string nft_transfer_claim_event2 = 10;
+}
+
+message AdminRsc {
+    string account = 1;
+    string password = 2;
+}

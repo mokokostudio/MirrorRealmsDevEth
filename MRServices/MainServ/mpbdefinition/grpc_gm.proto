@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mpb;
+
+option go_package = "./mpb";
+
+service GMService {
+    rpc AdminLoginByPassword(ReqAdminLoginByPassword) returns (ResAdminLoginByPassword);
+}
+
+message ReqAdminLoginByPassword {
+    string account = 1;
+    string password = 2;
+}
+
+message ResAdminLoginByPassword {
+    string token = 1;
+}

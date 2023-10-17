@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+package mpb;
+
+option go_package = "./mpb";
+
+message MainCmd{
+    enum Cmd {
+        Error = 0;
+        TCPGateway = 1;
+        Team = 2;
+        Chat = 3;
+        Item = 4;
+        Mail = 5;
+        Social = 6;
+    }
+}
+
+message SubCmd_Error {
+    enum Cmd {
+        None = 0;
+    }
+}
+
+message SubCmd_TCPGateway {
+    enum Cmd {
+        None = 0;
+        HeartBeat = 1;
+        LoginTCP = 2;
+    }
+}
+
+message SubCmd_Team {
+    enum Cmd {
+        None = 0;
+    }
+}
+
+message SubCmd_Chat {
+    enum Cmd {
+        None = 0;
+    }
+}
+
+message SubCmd_Item {
+    enum Cmd {
+        None = 0;
+        Update = 1;
+    }
+}
+
+message SubCmd_Mail {
+    enum Cmd {
+        None = 0;
+        SendMail = 1;
+    }
+}
+
+message SubCmd_Social {
+    enum Cmd {
+        None = 0;
+        ApplyFriend = 1;
+        CreateFriend = 2;
+        RemoveFriend = 3;
+    }
+}

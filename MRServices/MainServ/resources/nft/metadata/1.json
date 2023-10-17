@@ -1,0 +1,24 @@
+{
+    "name": "Sword",
+    "image": "https://ipfs.io/ipfs/QmcUx3Y4WcoAzP8DWu7GY3bsiaYpvvEjxfRmdXyYUw1LmW?filename=Test1.png",
+    "description": "",
+    "id": "ll69mz05",
+    "attributes": [
+        {
+            "type": "weapontype",
+            "value": "1"
+        },
+        {
+            "type": "quality",
+            "value": "88"
+        },
+        {
+            "type": "attr1",
+            "value": "CRT +17.2%"
+        },
+        {
+            "type": "attr2",
+            "value": "ATK +17.2%"
+        }
+    ]
+}

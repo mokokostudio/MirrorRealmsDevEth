@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+package mpb;
+
+option go_package = "./mpb";
+
+enum ErrCode {
+    ERR_OK = 0;
+    ERR_CMD = 1;
+    ERR_PARAM = 2;
+    ERR_DB = 4;
+    ERR_CONFIG = 5;
+    ERR_MSG_DECODE = 6;
+    ERR_TOKEN_VERIFY = 7;
+    ERR_WRONG_GATEWAY = 8;
+    ERR_REPEATED_REQUEST = 9;
+
+    // account
+    ERR_ACCOUNT_EXIST = 101;
+    ERR_ACCOUNT_NOT_EXIST = 102;
+    ERR_PASSWORD = 103;
+    ERR_EMAIL_ADDRESS = 104;
+    ERR_EMAIL_SEND_MAX = 105;
+    ERR_EMAIL_BIND_CODE = 106;
+    ERR_EMAIL_BOUND = 107;
+    ERR_ACC_BOUND_EMAIL = 108;
+    ERR_APTOS_PUBLIC_KEY = 109;
+    ERR_APTOS_VERIFY_SIGNATURE = 110;
+    ERR_NEW_PASSWD_SAME_WITH_OLD_PASSWD = 111;
+    ERR_EMAIL_VERIFICATION_CODE = 112;
+    ERR_EMAIL_NOT_EXIST = 113;
+
+    // nft
+    ERR_PARSE_NFT_ID = 301;
+    ERR_NFT_TOKEN_ID = 302;
+    ERR_NFT_NO_OWNER = 303;
+    ERR_NFT_HASH_ID = 304;
+
+    // gm
+    ERR_ADMIN_ACCOUNT_OR_PASSWD = 501;
+
+    ERR_UNKNOWN = 9999;
+
+}
+
+message ErrorMsg {
+    ErrCode error = 1;
+    map<string,string> err_detail = 2;
+}

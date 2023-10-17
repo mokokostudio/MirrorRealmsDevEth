@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package mpb;
+
+option go_package = "./mpb";
+
+import "common.proto";
+
+message CReqGetAptosNFTs {
+    repeated uint32 nft_types = 1;
+}
+
+message CResGetAptosNFTs {
+    repeated AptosNFTNode nfts = 1;
+}
+
+message CReqGetAptosNFTMetadatas {
+    repeated uint64 nft_ids = 1;
+}
+
+message CResGetAptosNFTMetadatas {
+    repeated AptosNFTMetadata metadatas = 1;
+}
+
+message CReqGetAptosNFTsV2 {
+}
+
+message CResGetAptosNFTsV2 {
+    repeated AptosNFTNodeV2 nfts = 1;
+}

@@ -1,0 +1,10 @@
+/resources/apiproxy/EmailAddr.csv
+/go_build_mr_service
+/logs/
+/config_apiproxy/
+/config_other/
+/config/
+/mr_services
+/resources/apiproxy/MoralisInfo.csv
+/resources/gm/Admins.csv
+/vendor/

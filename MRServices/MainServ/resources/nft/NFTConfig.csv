@@ -1,0 +1,4 @@
+NFTGraphiQLQueryLimit,NFTGraphiQLPageNum,NFTTransferEvent,NFTBurnEvent,NFTDepositEvent2,NFTWithdrawEvent2,NFTBurnEvent2,NFTMintEvent2,NFTTransferOfferEvent2,NFTTransferClaimEvent2
+int,int,string,string,string,string,string,string,string,string
+NFTGraphiQLQueryLimit,NFTGraphiQLPageNum,NFTTransferEvent,NFTBurnEvent,NFTDepositEvent2,NFTWithdrawEvent2,NFTBurnEvent2,NFTMintEvent2,NFTTransferOfferEvent2,NFTTransferClaimEvent2
+60,200,0x1::object::TransferEvent,0x4::collection::BurnEvent,0x3::token::DepositEvent,0x3::token::WithdrawEvent,0x3::token::BurnEvent,0x3::token::MintTokenEvent,0x3::token_transfers::TokenOfferEvent,0x3::token_transfers::TokenClaimEvent

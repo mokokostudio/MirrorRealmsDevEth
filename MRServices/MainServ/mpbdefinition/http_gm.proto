@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+package mpb;
+
+option go_package = "./mpb";
+
+import "common.proto";
+import "grpc_nft.proto";
+
+message CReqAdminLoginByPassword {
+    string account = 1;
+    string password = 2;
+}
+
+message CResAdminLoginByPassword {
+    string token = 1;
+}
+
+message CReqAdminGetAptosNFTOwner {
+    string token_id = 1;
+}
+
+message CResAdminGetAptosNFTOwner {
+    AccountInfo owner = 1;
+}
+
+message CReqAdminGetAptosNFTsInCollection {
+    string collection_id = 1;
+}
+
+message CResAdminGetAptosNFTsInCollection {
+    repeated AdminGetAptosNFTsInCollectionNode nft_list = 1;
+}
+
+message CReqAdminGetCollectionNFTBuyers {
+    string collection_id = 1;
+}
+
+message CResAdminGetCollectionNFTBuyers {
+    repeated AdminGetCollectionNFTBuyersNode nft_list = 1;
+}
+
+message CReqAdminGetCollectionNFTOffers {
+    string collection_id = 1;
+    string dst_addr = 2;
+    string start_time = 3;
+    string end_time = 4;
+}
+
+message CResAdminGetCollectionNFTOffers {
+    repeated AdminGetCollectionNFTOffersNode nft_list = 1;
+}

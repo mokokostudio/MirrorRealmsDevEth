@@ -1,0 +1,111 @@
+syntax = "proto3";
+
+package mpb;
+
+option go_package = "./mpb";
+
+import "common.proto";
+
+service NFTService {
+    rpc GetAptosNFTs(ReqGetAptosNFTs) returns (ResGetAptosNFTs);
+    rpc GetAptosNFTMetadatas(ReqGetAptosNFTMetadatas) returns (ResGetAptosNFTMetadatas);
+    rpc GetAptosNFTsV2(ReqGetAptosNFTsV2) returns (ResGetAptosNFTsV2);
+    rpc GetAptosNFTOwner(ReqGetAptosNFTOwner) returns (ResGetAptosNFTOwner);
+    rpc AdminGetAptosNFTsInCollection(ReqAdminGetAptosNFTsInCollection) returns (ResAdminGetAptosNFTsInCollection);
+    rpc AdminGetCollectionNFTBuyers(ReqAdminGetCollectionNFTBuyers) returns (ResAdminGetCollectionNFTBuyers);
+    rpc AdminGetCollectionNFTOffers(ReqAdminGetCollectionNFTOffers) returns (ResAdminGetCollectionNFTOffers);
+}
+
+message ReqGetAptosNFTs {
+    string wallet_addr = 1;
+    repeated ENFT.NFTType nft_types = 2;
+}
+
+message ResGetAptosNFTs {
+    repeated AptosNFTNode nfts = 1;
+}
+
+message ReqGetAptosNFTMetadatas {
+    repeated uint64 nft_ids = 1;
+}
+
+message ResGetAptosNFTMetadatas {
+    repeated AptosNFTMetadata metadatas = 1;
+}
+
+message ReqGetAptosNFTsV2 {
+    uint64 user_id = 1;
+    string wallet_addr = 2;
+}
+
+message ResGetAptosNFTsV2 {
+    repeated AptosNFTNodeV2 nfts = 1;
+}
+
+message ReqGetAptosNFTOwner {
+    string token_id = 1;
+}
+
+message ResGetAptosNFTOwner {
+    AccountInfo owner = 1;
+}
+
+message ReqAdminGetAptosNFTsInCollection {
+    string collection_id = 1;
+}
+
+message AdminGetAptosNFTsInCollectionNode {
+    uint32 token_id = 1;
+    string token_data_id = 2;
+    string token_name = 3;
+    string transaction_timestamp = 4;
+    string token_url = 5;
+    uint64 transaction_version = 6;
+    AccountInfo owner = 7;
+    string owner_addr = 8;
+}
+
+message ResAdminGetAptosNFTsInCollection {
+    repeated AdminGetAptosNFTsInCollectionNode nft_list = 1;
+}
+
+message ReqAdminGetCollectionNFTBuyers {
+    string collection_id = 1;
+}
+
+message AdminGetCollectionNFTBuyersNode {
+    uint32 token_id = 1;
+    string token_data_id = 2;
+    string token_name = 3;
+    string transaction_timestamp = 4;
+    string token_url = 5;
+    uint64 transaction_version = 6;
+    AccountInfo buyer = 7;
+    string buyer_addr = 8;
+}
+
+message ResAdminGetCollectionNFTBuyers {
+    repeated AdminGetCollectionNFTBuyersNode nft_list = 1;
+}
+
+message ReqAdminGetCollectionNFTOffers {
+    string collection_id = 1;
+    string dst_addr = 2;
+    int64 start_time = 3;
+    int64 end_time = 4;
+}
+
+message AdminGetCollectionNFTOffersNode {
+    uint32 token_id = 1;
+    string token_data_id = 2;
+    string token_name = 3;
+    string transaction_timestamp = 4;
+    string token_url = 5;
+    uint64 transaction_version = 6;
+    AccountInfo offer = 7;
+    string offer_addr = 8;
+}
+
+message ResAdminGetCollectionNFTOffers {
+    repeated AdminGetCollectionNFTOffersNode nft_list = 1;
+}

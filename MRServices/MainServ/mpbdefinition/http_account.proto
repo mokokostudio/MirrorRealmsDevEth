@@ -1,0 +1,89 @@
+syntax = "proto3";
+
+package mpb;
+
+option go_package = "./mpb";
+
+import "common.proto";
+
+// account
+message CReqLoginByPassword {
+    string account = 1;
+    string password = 2;
+}
+
+message CResLoginByPassword {
+    AccountInfo account = 1;
+    string resources = 2;
+    string token = 3;
+}
+
+message CResGenerateNonce {
+    string nonce = 1;
+}
+
+message CReqWebLoginByWallet {
+    string wallet_addr = 1;
+    string pub_key = 2;
+    string aptos_full_msg = 3;
+    string aptos_signature = 4;
+}
+
+message CReqSendEmailBindCode {
+    string email = 1;
+}
+
+message CResWebLoginByWallet {
+    AccountInfo account = 1;
+    string resources = 2;
+    string token = 3;
+}
+
+message CReqWebBindEmail {
+    string email = 1;
+    string code = 2;
+}
+
+message CResWebBindEmail {
+    AccountInfo account = 1;
+    string resources = 2;
+    string token = 3;
+}
+
+message CResGetAccountInfo {
+    AccountInfo account = 1;
+}
+
+message CResGetAptosResources {
+    string resources = 1;
+}
+
+message CReqChangePassword {
+    string old_password = 1;
+    string new_password = 2;
+}
+
+message CReqSendEmailResetPasswordCode {
+    string email = 1;
+}
+
+message CReqCheckEmailResetPasswordCode{
+    string email = 1;
+    string code = 2;
+}
+
+message CResCheckEmailResetPasswordCode {
+    string nonce = 1;
+}
+
+message CReqResetPasswordByEmail {
+    string email = 1;
+    string password = 2;
+    string nonce = 3;
+}
+
+message CReqResetPasswordByEmailAndVCode {
+    string email = 1;
+    string password = 2;
+    string code = 3;
+}
